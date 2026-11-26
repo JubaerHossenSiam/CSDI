@@ -1,0 +1,468 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-20T09:50:00Z"
+ },
+ "title": "CSDI Website",
+ "launch": {
+  "view": "canvas",
+  "page": "v2"
+ },
+ "pages": [
+  {
+   "id": "v1",
+   "name": "V1"
+  },
+  {
+   "id": "v2",
+   "name": "V2"
+  }
+ ],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 6338,
+   "title": "Home",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "About.dc.html": {
+   "x": 1600,
+   "y": 0,
+   "w": 1440,
+   "h": 6556,
+   "title": "About",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Courses.dc.html": {
+   "x": 3200,
+   "y": 0,
+   "w": 1440,
+   "h": 3694,
+   "title": "Courses",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Caregiving.dc.html": {
+   "x": 4800,
+   "y": 0,
+   "w": 1440,
+   "h": 4858,
+   "title": "Caregiving",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Japanese.dc.html": {
+   "x": 6400,
+   "y": 0,
+   "w": 1440,
+   "h": 4437,
+   "title": "Japanese Language",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "English.dc.html": {
+   "x": 8000,
+   "y": 0,
+   "w": 1440,
+   "h": 4314,
+   "title": "English",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "ComputerSkills.dc.html": {
+   "x": 9600,
+   "y": 0,
+   "w": 1440,
+   "h": 4314,
+   "title": "Basic Computer Skills",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Admission.dc.html": {
+   "x": 11200,
+   "y": 0,
+   "w": 1440,
+   "h": 3919,
+   "title": "Admission",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "ApplyCaregiving.dc.html": {
+   "x": 12800,
+   "y": 0,
+   "w": 1440,
+   "h": 2292,
+   "title": "Apply: Caregiving",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "ApplyJapanese.dc.html": {
+   "x": 14400,
+   "y": 0,
+   "w": 1440,
+   "h": 2265,
+   "title": "Apply: Japanese Language",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "ApplyEnglish.dc.html": {
+   "x": 16000,
+   "y": 0,
+   "w": 1440,
+   "h": 2160,
+   "title": "Apply: English",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "ApplyComputerSkills.dc.html": {
+   "x": 17600,
+   "y": 0,
+   "w": 1440,
+   "h": 2160,
+   "title": "Apply: Basic Computer Skills",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Apply.dc.html": {
+   "x": 19200,
+   "y": 0,
+   "w": 1440,
+   "h": 2082,
+   "title": "Apply: no course selected",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "News.dc.html": {
+   "x": 20800,
+   "y": 0,
+   "w": 1440,
+   "h": 2911,
+   "title": "News",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "NewsArticle.dc.html": {
+   "x": 22400,
+   "y": 0,
+   "w": 1440,
+   "h": 3575,
+   "title": "News article",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Contact.dc.html": {
+   "x": 24000,
+   "y": 0,
+   "w": 1440,
+   "h": 2415,
+   "title": "Contact",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Privacy.dc.html": {
+   "x": 25600,
+   "y": 0,
+   "w": 1440,
+   "h": 3083,
+   "title": "Privacy Policy",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Terms.dc.html": {
+   "x": 27200,
+   "y": 0,
+   "w": 1440,
+   "h": 2651,
+   "title": "Terms and Conditions",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Refund.dc.html": {
+   "x": 28800,
+   "y": 0,
+   "w": 1440,
+   "h": 2090,
+   "title": "Refund Policy",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "Student.dc.html": {
+   "x": 30400,
+   "y": 0,
+   "w": 1440,
+   "h": 1569,
+   "title": "Student page (QR)",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "StudentInvalid.dc.html": {
+   "x": 32000,
+   "y": 0,
+   "w": 1440,
+   "h": 1058,
+   "title": "Student page: link not valid",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "NotFound.dc.html": {
+   "x": 33600,
+   "y": 0,
+   "w": 1440,
+   "h": 1161,
+   "title": "404: page not found",
+   "expand": "fill",
+   "page": "v1"
+  },
+  "V2Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 6321,
+   "title": "Home",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2About.dc.html": {
+   "x": 1600,
+   "y": 0,
+   "w": 1440,
+   "h": 6553,
+   "title": "About",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Courses.dc.html": {
+   "x": 3200,
+   "y": 0,
+   "w": 1440,
+   "h": 3697,
+   "title": "Courses",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Caregiving.dc.html": {
+   "x": 4800,
+   "y": 0,
+   "w": 1440,
+   "h": 4854,
+   "title": "Caregiving",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Japanese.dc.html": {
+   "x": 6400,
+   "y": 0,
+   "w": 1440,
+   "h": 4436,
+   "title": "Japanese Language",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2English.dc.html": {
+   "x": 8000,
+   "y": 0,
+   "w": 1440,
+   "h": 4310,
+   "title": "English",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2ComputerSkills.dc.html": {
+   "x": 9600,
+   "y": 0,
+   "w": 1440,
+   "h": 4310,
+   "title": "Basic Computer Skills",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Admission.dc.html": {
+   "x": 11200,
+   "y": 0,
+   "w": 1440,
+   "h": 3922,
+   "title": "Admission",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2ApplyCaregiving.dc.html": {
+   "x": 12800,
+   "y": 0,
+   "w": 1440,
+   "h": 2288,
+   "title": "Apply: Caregiving",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2ApplyJapanese.dc.html": {
+   "x": 14400,
+   "y": 0,
+   "w": 1440,
+   "h": 2261,
+   "title": "Apply: Japanese Language",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2ApplyEnglish.dc.html": {
+   "x": 16000,
+   "y": 0,
+   "w": 1440,
+   "h": 2156,
+   "title": "Apply: English",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2ApplyComputerSkills.dc.html": {
+   "x": 17600,
+   "y": 0,
+   "w": 1440,
+   "h": 2156,
+   "title": "Apply: Basic Computer Skills",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Apply.dc.html": {
+   "x": 19200,
+   "y": 0,
+   "w": 1440,
+   "h": 2078,
+   "title": "Apply: no course selected",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2News.dc.html": {
+   "x": 20800,
+   "y": 0,
+   "w": 1440,
+   "h": 2510,
+   "title": "News",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2NewsArticle.dc.html": {
+   "x": 22400,
+   "y": 0,
+   "w": 1440,
+   "h": 3571,
+   "title": "News article",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Contact.dc.html": {
+   "x": 24000,
+   "y": 0,
+   "w": 1440,
+   "h": 2412,
+   "title": "Contact",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Privacy.dc.html": {
+   "x": 25600,
+   "y": 0,
+   "w": 1440,
+   "h": 3080,
+   "title": "Privacy Policy",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Terms.dc.html": {
+   "x": 27200,
+   "y": 0,
+   "w": 1440,
+   "h": 2647,
+   "title": "Terms and Conditions",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Refund.dc.html": {
+   "x": 28800,
+   "y": 0,
+   "w": 1440,
+   "h": 2086,
+   "title": "Refund Policy",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2Student.dc.html": {
+   "x": 30400,
+   "y": 0,
+   "w": 1440,
+   "h": 1565,
+   "title": "Student page (QR)",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2StudentInvalid.dc.html": {
+   "x": 32000,
+   "y": 0,
+   "w": 1440,
+   "h": 1054,
+   "title": "Student page: link not valid",
+   "expand": "fill",
+   "page": "v2"
+  },
+  "V2NotFound.dc.html": {
+   "x": 33600,
+   "y": 0,
+   "w": 1440,
+   "h": 1157,
+   "title": "404: page not found",
+   "expand": "fill",
+   "page": "v2"
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "About.dc.html",
+  "Courses.dc.html",
+  "Caregiving.dc.html",
+  "Japanese.dc.html",
+  "English.dc.html",
+  "ComputerSkills.dc.html",
+  "Admission.dc.html",
+  "ApplyCaregiving.dc.html",
+  "ApplyJapanese.dc.html",
+  "ApplyEnglish.dc.html",
+  "ApplyComputerSkills.dc.html",
+  "Apply.dc.html",
+  "News.dc.html",
+  "NewsArticle.dc.html",
+  "Contact.dc.html",
+  "Privacy.dc.html",
+  "Terms.dc.html",
+  "Refund.dc.html",
+  "Student.dc.html",
+  "StudentInvalid.dc.html",
+  "NotFound.dc.html",
+  "V2Main.dc.html",
+  "V2About.dc.html",
+  "V2Courses.dc.html",
+  "V2Caregiving.dc.html",
+  "V2Japanese.dc.html",
+  "V2English.dc.html",
+  "V2ComputerSkills.dc.html",
+  "V2Admission.dc.html",
+  "V2ApplyCaregiving.dc.html",
+  "V2ApplyJapanese.dc.html",
+  "V2ApplyEnglish.dc.html",
+  "V2ApplyComputerSkills.dc.html",
+  "V2Apply.dc.html",
+  "V2News.dc.html",
+  "V2NewsArticle.dc.html",
+  "V2Contact.dc.html",
+  "V2Privacy.dc.html",
+  "V2Terms.dc.html",
+  "V2Refund.dc.html",
+  "V2Student.dc.html",
+  "V2StudentInvalid.dc.html",
+  "V2NotFound.dc.html"
+ ],
+ "notes": {},
+ "designSystems": []
+}
