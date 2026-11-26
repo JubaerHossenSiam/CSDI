@@ -238,12 +238,21 @@
     });
     renderGallery();
   }
-  $$('main a[href="#"]').filter(link => /load more/i.test(link.textContent)).forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      notice('All six supplied news updates are shown.');
+  const newsMore = $('#news-load-more');
+  if (newsMore) {
+    const cards = $$('#news-list > article');
+    const pageSize = 6;
+    let visibleCount = pageSize;
+    cards.slice(visibleCount).forEach(card => { card.hidden = true; });
+    newsMore.hidden = cards.length <= visibleCount;
+    newsMore.addEventListener('click', () => {
+      const nextCards = cards.slice(visibleCount, visibleCount + pageSize);
+      nextCards.forEach(card => { card.hidden = false; });
+      visibleCount += nextCards.length;
+      newsMore.hidden = cards.length <= visibleCount;
+      if (newsMore.hidden && nextCards.length) $('a', nextCards[0])?.focus();
     });
-  });
+  }
 
   // Each news card opens its own preview instead of always showing the first story.
   $$('article').forEach(article => {
