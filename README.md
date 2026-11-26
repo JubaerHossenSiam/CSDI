@@ -51,4 +51,4 @@ Application and contact forms validate required fields and display a local previ
 
 ## Before the WordPress build
 
-Confirm the supplied placeholder fees (`BDT 00,000`), dates, durations, statistics, student samples, testimonials, images, policies and contact details with the client. Reuse the approved page structure and visual styling when building the theme; connect forms, content management, news, media and student verification to the final WordPress implementation then.
+Confirm the preview fees, dates, durations, statistics, student samples, testimonials, images, policies and contact details with the client. Reuse the approved page structure and visual styling when building the theme; connect forms, content management, news, media and student verification to the final WordPress implementation then.

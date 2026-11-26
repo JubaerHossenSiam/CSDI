@@ -68,7 +68,7 @@
     'Caregiving': 'ApplyCaregiving.html',
     'Japanese Language': 'ApplyJapanese.html',
     'English': 'ApplyEnglish.html',
-    'Basic Computer Skills': 'ApplyComputerSkills.html'
+    'Basic Computer': 'ApplyComputerSkills.html'
   };
   const fieldLabel = input => {
     const container = input.closest('.fl');
@@ -76,12 +76,7 @@
   };
   let courseRequest = 0;
   function setupForm(form) {
-    form.removeAttribute('onsubmit');
     const isApplication = !!$('fieldset', form);
-    const note = document.createElement('p');
-    note.className = 'preview-form-note';
-    note.textContent = 'Design preview: try the form with sample details. Nothing is sent or saved.';
-    form.prepend(note);
     $$('input, select, textarea', form).forEach((input, index) => {
       const label = fieldLabel(input);
       input.id = `field-${index}`;
@@ -99,7 +94,7 @@
       } else {
         const visibleLabel = input.closest('.fl')?.querySelector(':scope > label');
         if (visibleLabel) visibleLabel.htmlFor = input.id;
-        input.required = label.includes('*') || input.type === 'checkbox';
+        input.required = label.includes('*');
       }
       if (input.type === 'tel') {
         input.pattern = '(?:\\+?88)?01[3-9][0-9]{8}';
@@ -114,6 +109,20 @@
       if (label.startsWith('Full name')) { input.autocomplete = 'name'; input.minLength = 2; }
       if (input.type === 'email') input.autocomplete = 'email';
     });
+    const sameAddress = form.elements.namedItem('same_address');
+    if (sameAddress) {
+      const syncAddress = () => {
+        for (const part of ['division', 'district', 'upazila', 'post_office', 'address']) {
+          const present = form.elements.namedItem(`present_${part}`);
+          if (sameAddress.checked) present.value = form.elements.namedItem(`permanent_${part}`).value;
+          present.readOnly = sameAddress.checked;
+        }
+      };
+      form.addEventListener('input', event => {
+        if (event.target === sameAddress || event.target.name?.startsWith('permanent_')) syncAddress();
+      });
+      syncAddress();
+    }
     form.addEventListener('submit', event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
@@ -133,10 +142,6 @@
       if (!target) return;
       const request = ++courseRequest;
       const previousValue = Object.keys(coursePages).find(key => coursePages[key] === location.pathname.split('/').pop()) || '';
-      const snapshot = new Map();
-      $$('fieldset:first-of-type input, fieldset:first-of-type select, textarea, input[type="checkbox"]', form).forEach(input => {
-        snapshot.set(`${input.name}:${input.type === 'radio' ? input.value : ''}`, { value: input.value, checked: input.checked });
-      });
       const submit = $('[type="submit"]', form);
       submit.disabled = true;
       form.setAttribute('aria-busy', 'true');
@@ -152,11 +157,16 @@
         $('main h1').textContent = $('main h1', doc).textContent;
         const breadcrumb = $('nav[aria-label="Breadcrumb"]');
         if (breadcrumb) breadcrumb.innerHTML = $('nav[aria-label="Breadcrumb"]', doc).innerHTML;
+        // Move common fields intact, including any locally selected documents.
+        const title = fieldset => $('legend', fieldset)?.textContent.trim();
+        const shared = new Map($$(':scope > fieldset', form).map(fieldset => [title(fieldset), fieldset]));
+        for (const fieldset of $$(':scope > fieldset', nextForm)) {
+          const heading = title(fieldset);
+          if (heading !== 'Course details' && shared.has(heading)) fieldset.replaceWith(shared.get(heading));
+        }
+        const consent = $('.application-consent', form);
+        if (consent) $('.application-consent', nextForm)?.replaceWith(consent);
         form.replaceWith(nextForm); setupForm(nextForm);
-        $$('input, select, textarea', nextForm).forEach(input => {
-          const saved = snapshot.get(`${input.name}:${input.type === 'radio' ? input.value : ''}`);
-          if (saved) { input.value = saved.value; input.checked = saved.checked; }
-        });
         document.title = doc.title;
         history.replaceState(null, '', target);
         $$('select', nextForm).find(input => fieldLabel(input).replace('*', '').trim() === 'Course')?.focus();
