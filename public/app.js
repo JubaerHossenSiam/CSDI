@@ -51,6 +51,19 @@
     item.addEventListener('toggle', sync); sync();
   });
 
+  const courseHero = $('.course-hero .split-layout');
+  if (courseHero) {
+    const mobile = window.matchMedia('(max-width: 700px)');
+    const updateImageOrder = () => {
+      // Both rows keep their heights, so either order has the same bottom edge.
+      const heroBottom = courseHero.getBoundingClientRect().bottom + window.scrollY;
+      courseHero.classList.toggle('image-first', mobile.matches && heroBottom + 12 <= window.innerHeight);
+    };
+    updateImageOrder();
+    new ResizeObserver(updateImageOrder).observe(courseHero);
+    window.addEventListener('resize', updateImageOrder);
+  }
+
   const coursePages = {
     'Caregiving': 'ApplyCaregiving.html',
     'Japanese Language': 'ApplyJapanese.html',

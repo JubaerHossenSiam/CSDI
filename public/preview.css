@@ -24,11 +24,49 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   .fwrap .tap, .fcols .crow a { position: relative; }
   /* Extend the touch area into the gap without adding height to each row. */
   .fwrap .tap::before, .fcols .crow a::before { content: ''; position: absolute; inset: -3px -4px; }
+  .partner-details .lk { padding-block: 2px; }
 }
 @media (max-width: 700px) {
-  .site-logo--header { display: flex; align-items: center; min-height: 72px; }
-  .site-logo--header img { height: 56px; }
-  .site-logo--footer img { height: 64px; }
+  :root { --mobile-logo-height: 44px; }
+  .site-logo--header img { height: var(--mobile-logo-height); }
+  .site-logo--footer img { height: 50px; }
+  .mnav {
+    /* The header also has 12px margins above and below the logo and a 1px border. */
+    height: calc(100vh - var(--mobile-logo-height) - 25px);
+    height: calc(100dvh - var(--mobile-logo-height) - 25px);
+  }
+
+  main .sec { padding-block: 48px !important; }
+  main .home-hero { padding-top: 40px !important; }
+  main .course-hero { padding-top: 32px !important; }
+  .section-description { margin-top: 12px !important; }
+  h1 + .section-description { margin-top: 16px !important; }
+  .section-intro { margin-bottom: 28px !important; row-gap: 12px !important; }
+  .section-actions, .tcb > .b, .tcb3 > .d { margin-top: 24px !important; }
+  .split-layout { gap: 28px !important; }
+  .tcb > .c, .fw { margin-top: 28px; }
+  .cw, .fw { row-gap: 24px; }
+  .cg, .cg2, .g3, .g3i, .g4, .g4i, .g4s, .cdt { gap: 16px; }
+  .home-hero .g3i, .split-layout + .g4i { margin-top: 32px !important; }
+  .gallery-filters { margin-bottom: 24px !important; }
+
+  .action-pair {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--action-min-width, 13rem)), 1fr));
+    max-width: 34rem;
+    gap: 12px !important;
+  }
+  .action-pair-centered { margin-inline: auto; }
+  .action-pair-wide { --action-min-width: 16rem; }
+  .action-pair > a { padding-inline: 16px !important; text-align: center; }
+
+  .home-hero-photo { height: auto !important; aspect-ratio: 4/3; max-height: 360px; }
+  .home-hero-photo img { position: absolute; inset: 0; object-position: 50% 36% !important; }
+  .story-layout > .hr, .course-hero .image-first > .hr { grid-row: 1; }
+  .course-hero .chi { position: relative; max-height: clamp(150px, 26svh, 224px); }
+  .course-hero .chi img { position: absolute; inset: 0; object-position: 50% 36%; }
+  .partner-layout > .c { gap: 16px !important; }
+  .partner-details { gap: 12px !important; }
 }
 .preview-form-note { padding: 12px 16px; margin: 0 0 24px; border-left: 3px solid #f0a001; background: #fff8e6; color: #44566a; font-size: 14px; line-height: 1.6; border-radius: 4px; }
 .form-result { margin-top: 24px; padding: 20px; border-radius: 12px; border: 1px solid #b9d8cb; background: #edf8f2; color: #14283b; line-height: 1.65; }
