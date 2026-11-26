@@ -30,6 +30,7 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   :root { --mobile-logo-height: 44px; }
   .site-logo--header img { height: var(--mobile-logo-height); }
   .site-logo--footer img { height: 50px; }
+  .fcols { grid-template-columns: minmax(0, 1fr); }
   .mnav {
     /* The header also has 12px margins above and below the logo and a 1px border. */
     height: calc(100vh - var(--mobile-logo-height) - 25px);
