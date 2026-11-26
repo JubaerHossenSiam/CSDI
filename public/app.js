@@ -173,7 +173,24 @@
   const gallery = $('.gal');
   if (gallery) {
     const items = [...gallery.children];
-    const filters = $$('button', gallery.parentElement).filter(button => ['All', 'Photos', 'Videos'].includes(button.textContent.trim()));
+    const filters = $$('.gallery-filters button', gallery.parentElement);
+    const more = $('.gallery-more', gallery.parentElement);
+    const pageSize = 6;
+    let filter = 'All';
+    let visibleCount = pageSize;
+    const matchingItems = () => filter === 'All' ? items : items.filter(item => item.dataset.media === filter);
+    const renderGallery = () => {
+      const matching = matchingItems();
+      const visible = new Set(matching.slice(0, visibleCount));
+      items.forEach(item => { item.hidden = !visible.has(item); });
+      more.hidden = matching.length <= visibleCount;
+    };
+    $('button', more).addEventListener('click', () => {
+      const firstNewItem = matchingItems()[visibleCount];
+      visibleCount += pageSize;
+      renderGallery();
+      firstNewItem?.focus();
+    });
     const dialog = document.createElement('dialog');
     dialog.className = 'gallery-dialog';
     dialog.setAttribute('aria-labelledby', 'gallery-title');
@@ -201,16 +218,20 @@
       button.classList.add('gallery-filter');
       button.setAttribute('aria-pressed', String(button.textContent.trim() === 'All'));
       button.addEventListener('click', () => {
+        const selected = button.textContent.trim();
+        if (filter === selected) return;
+        filter = selected;
+        visibleCount = pageSize;
         filters.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
-        const filter = button.textContent.trim();
-        items.forEach(item => { item.hidden = filter !== 'All' && item.dataset.media !== filter; });
+        renderGallery();
       });
     });
+    renderGallery();
   }
   $$('main a[href="#"]').filter(link => /load more/i.test(link.textContent)).forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault();
-      notice(gallery ? 'All supplied gallery items are shown. More media can be added after approval.' : 'All six supplied news updates are shown.');
+      notice('All six supplied news updates are shown.');
     });
   });
 

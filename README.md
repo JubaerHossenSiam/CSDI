@@ -45,7 +45,7 @@ The student verification pages are visual samples from the design. They do not v
 
 ## Preview interactions
 
-The mobile menu supports mouse, touch and keyboard; course FAQs expand; gallery filters and a keyboard-accessible lightbox work. Each news card opens its own summary preview. Only the first story has full article copy in the supplied design; other stories clearly show the supplied summary awaiting final content. Load More reports when all supplied items are already shown. The gallery displays two supplied video covers as stills while the footage is pending. The staff, testimonial, and student ID portraits are illustrative samples.
+The mobile menu supports mouse, touch and keyboard; course FAQs expand; gallery filters and a keyboard-accessible lightbox work. Each news card opens its own summary preview. Only the first story has full article copy in the supplied design; other stories clearly show the supplied summary awaiting final content. The gallery shows six items at a time and offers Load More only when additional items match the selected filter. It displays two supplied video covers as stills while the footage is pending. The staff, testimonial, and student ID portraits are illustrative samples.
 
 Application and contact forms validate required fields and display a local preview confirmation. Switching an application course loads its matching form and preserves common details in memory. **No forms send, store, email or persist personal details.** Refreshing clears the form state. There is no production admission, email, payment or verification backend.
 
