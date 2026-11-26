@@ -18,7 +18,6 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
 .site-logo--header img { height: 72px; }
 .site-logo--footer img { height: 88px; }
 .menu-btn { border: 0 !important; background: transparent !important; padding: 0; }
-.mobile-copy { display: none; }
 .fcols > .tapcol, .fcols > :has(> .crow) { row-gap: 8px !important; }
 .fcols > .tapcol > div:first-child, .fcols > :has(> .crow) > div:first-child { margin-bottom: 4px; }
 @media (max-width: 900px) {
@@ -29,7 +28,6 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
 }
 @media (max-width: 700px) {
   :root { --mobile-logo-height: 44px; }
-  .mobile-copy { display: inline; }
   .site-logo--header img { height: var(--mobile-logo-height); }
   .site-logo--footer img { height: 50px; }
   .mnav {
