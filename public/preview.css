@@ -13,13 +13,22 @@ fieldset { min-width: 0; }
 :focus-visible { outline: 3px solid #f0a001; outline-offset: 4px; }
 main:focus { outline: none; }
 input:focus, select:focus, textarea:focus { border-color: #00528e !important; outline: 2px solid #00528e33; outline-offset: 2px; }
+.site-logo, .site-logo img { display: block; }
+.site-logo img { width: auto; }
+.site-logo--header img { height: 72px; }
+.site-logo--footer img { height: 88px; }
 .fcols > .tapcol, .fcols > :has(> .crow) { row-gap: 8px !important; }
 .fcols > .tapcol > div:first-child, .fcols > :has(> .crow) > div:first-child { margin-bottom: 4px; }
 @media (max-width: 900px) {
-  .fcols > .tapcol, .fcols > :has(> .crow) { row-gap: 0 !important; }
-  .fcols > .tapcol > div:first-child, .fcols > :has(> .crow) > div:first-child { margin-bottom: 8px; }
-  .fcols .crow { min-height: 44px; }
-  .fcols .crow a { display: flex; align-items: center; min-height: 44px; padding: 0; }
+  .fwrap .tap { min-height: 0; }
+  .fwrap .tap, .fcols .crow a { position: relative; }
+  /* Extend the touch area into the gap without adding height to each row. */
+  .fwrap .tap::before, .fcols .crow a::before { content: ''; position: absolute; inset: -3px -4px; }
+}
+@media (max-width: 700px) {
+  .site-logo--header { display: flex; align-items: center; min-height: 72px; }
+  .site-logo--header img { height: 56px; }
+  .site-logo--footer img { height: 64px; }
 }
 .preview-form-note { padding: 12px 16px; margin: 0 0 24px; border-left: 3px solid #f0a001; background: #fff8e6; color: #44566a; font-size: 14px; line-height: 1.6; border-radius: 4px; }
 .form-result { margin-top: 24px; padding: 20px; border-radius: 12px; border: 1px solid #b9d8cb; background: #edf8f2; color: #14283b; line-height: 1.65; }
