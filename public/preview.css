@@ -39,7 +39,7 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   }
 
   main .sec { padding-block: 48px !important; }
-  main .home-hero { padding-top: 40px !important; }
+  main .home-hero { padding-top: 24px !important; }
   main .course-hero { padding-top: 32px !important; }
   .section-description { margin-top: 12px !important; }
   h1 + .section-description { margin-top: 16px !important; }
@@ -93,8 +93,10 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   }
   .home-hero .action-pair > a { width: 100%; max-width: var(--hero-button-max); justify-self: start; }
 
-  .home-hero-photo { width: 100%; height: auto !important; aspect-ratio: 4/3; max-height: 360px; }
-  .home-hero-photo img { position: absolute; inset: 0; object-position: 50% 36% !important; }
+  .home-hero .split-layout { gap: 24px !important; }
+  .home-hero .split-layout > .hr { grid-row: 1; }
+  .home-hero-photo { width: 100%; height: clamp(100px, 18svh, 168px) !important; }
+  .home-hero-photo img { position: absolute; inset: 0; object-position: 50% 0% !important; }
   .story-layout > .hr, .course-hero .image-first > .hr { grid-row: 1; }
   .course-hero .chi { position: relative; width: 100%; max-height: clamp(150px, 26svh, 224px); }
   .course-hero .chi img { position: absolute; inset: 0; object-position: 50% 36%; }
@@ -103,6 +105,15 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   .partner-details .lk { padding-block: 2px; }
 }
 @media (max-width: 380px) { .tm, .gal { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 400px) and (max-height: 700px) {
+  main .home-hero { padding-top: 16px !important; }
+  .home-hero .split-layout { gap: 16px !important; }
+  .home-hero-photo { height: clamp(88px, 15svh, 104px) !important; }
+  .home-hero h1 { font-size: 1.875rem !important; }
+  .home-hero .hero-intro { margin-top: 12px !important; line-height: 1.5 !important; }
+  .home-hero .hero-intro + p { margin-top: 8px !important; line-height: 1.5 !important; }
+  .home-hero .action-pair { margin-top: 16px !important; }
+}
 .preview-form-note { padding: 12px 16px; margin: 0 0 24px; border-left: 3px solid #f0a001; background: #fff8e6; color: #44566a; font-size: 14px; line-height: 1.6; border-radius: 4px; }
 .form-result { margin-top: 24px; padding: 20px; border-radius: 12px; border: 1px solid #b9d8cb; background: #edf8f2; color: #14283b; line-height: 1.65; }
 .form-result h3 { margin: 0 0 8px; font-size: 20px; }
