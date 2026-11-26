@@ -168,25 +168,21 @@
     document.body.append(dialog);
     $('.dialog-close', dialog).addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
-    items.forEach((item, index) => {
-      const video = index === 2 || index === 5;
-      item.dataset.media = video ? 'Videos' : 'Photos';
-      const caption = item.textContent.trim() || 'Classroom at CSDI';
-      item.tabIndex = 0; item.setAttribute('role', 'button'); item.setAttribute('aria-label', `Preview ${caption}`);
-      const open = () => {
-        $('#gallery-title', dialog).textContent = caption;
-        const content = $('.gallery-content', dialog); content.replaceChildren();
-        const image = $('img', item);
-        if (image) content.append(image.cloneNode(true));
-        else {
-          const placeholder = document.createElement('div'); placeholder.className = 'gallery-placeholder';
-          placeholder.textContent = `${video ? 'Video' : 'Photo'} to be supplied for ${caption.toLowerCase()}. This space follows the approved gallery layout.`;
-          content.append(placeholder);
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        $('#gallery-title', dialog).textContent = item.dataset.caption;
+        const content = $('.gallery-content', dialog);
+        const image = $('img', item).cloneNode(true);
+        image.loading = 'eager';
+        content.replaceChildren(image);
+        if (item.dataset.media === 'Videos') {
+          const note = document.createElement('p');
+          note.className = 'gallery-cover-note';
+          note.textContent = 'Video cover preview. Footage will be added when available.';
+          content.append(note);
         }
         dialog.showModal();
-      };
-      item.addEventListener('click', open);
-      item.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
+      });
     });
     filters.forEach(button => {
       button.classList.add('gallery-filter');
