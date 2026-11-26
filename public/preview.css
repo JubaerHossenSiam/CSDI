@@ -17,6 +17,7 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
 .site-logo img { width: auto; }
 .site-logo--header img { height: 72px; }
 .site-logo--footer img { height: 88px; }
+.menu-btn { border: 0 !important; background: transparent !important; padding: 0; }
 .mobile-copy { display: none; }
 .fcols > .tapcol, .fcols > :has(> .crow) { row-gap: 8px !important; }
 .fcols > .tapcol > div:first-child, .fcols > :has(> .crow) > div:first-child { margin-bottom: 4px; }
@@ -77,14 +78,20 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   .gallery-play svg { width: 18px; height: 18px; }
 
   .action-pair {
+    --action-gap: 12px;
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--action-min-width, 13rem)), 1fr));
     max-width: 34rem;
-    gap: 12px !important;
+    gap: var(--action-gap) !important;
   }
   .action-pair-centered { margin-inline: auto; }
   .action-pair-wide { --action-min-width: 16rem; }
   .action-pair > a { padding-inline: 16px !important; text-align: center; }
+  .home-hero .action-pair {
+    --hero-button-max: 15rem;
+    max-width: calc(2 * var(--hero-button-max) + var(--action-gap));
+  }
+  .home-hero .action-pair > a { width: 100%; max-width: var(--hero-button-max); justify-self: start; }
 
   .home-hero-photo { width: 100%; height: auto !important; aspect-ratio: 4/3; max-height: 360px; }
   .home-hero-photo img { position: absolute; inset: 0; object-position: 50% 36% !important; }
