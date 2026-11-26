@@ -42,7 +42,11 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   main .course-hero { padding-top: 32px !important; }
   .section-description { margin-top: 12px !important; }
   h1 + .section-description { margin-top: 16px !important; }
+  .hero-intro { font-size: 1.0625rem !important; }
+  h2 + .section-description { font-size: 1rem !important; }
   .section-intro { margin-bottom: 28px !important; row-gap: 12px !important; }
+  .home-news .section-intro { justify-content: center !important; text-align: center; }
+  .home-news .nbb { text-align: center; }
   .section-actions, .tcb > .b, .tcb3 > .d { margin-top: 24px !important; }
   .split-layout { gap: 28px !important; }
   .tcb > .c, .fw { margin-top: 28px; }
