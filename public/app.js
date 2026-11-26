@@ -213,14 +213,16 @@
   async function setupArticle() {
     if (!/\/NewsArticle(?:\.html)?$/.test(location.pathname)) return;
     const story = new URLSearchParams(location.search).get('story');
-    if (!story || story === slug($('main h1').textContent)) return;
+    const heading = $('main h1');
+    if (!story || story === slug(heading.textContent)) return;
+    const imageWrap = heading.parentElement.nextElementSibling;
+    imageWrap.hidden = true;
     try {
       const response = await fetch('News.html');
       if (!response.ok) throw new Error('News unavailable');
       const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
       const card = $$('article', doc).find(article => slug($('h3', article)?.textContent || '') === story);
       if (!card) { notice('This story is unavailable. Showing the featured news preview.'); return; }
-      const heading = $('main h1');
       heading.textContent = $('h3', card).textContent;
       const category = $('span', heading.previousElementSibling);
       if (category) category.textContent = 'News';
@@ -231,10 +233,15 @@
       if (dateSpan) { const icon = $('svg', dateSpan); dateSpan.replaceChildren(...(icon ? [icon] : []), document.createTextNode(date)); }
       const readingTime = $$('span', heading.nextElementSibling).at(-1);
       if (readingTime && readingTime !== dateSpan) readingTime.textContent = 'News preview';
-      const imageWrap = heading.parentElement.nextElementSibling;
       const hero = $('img', imageWrap);
       const cardImage = $('img', card);
-      if (hero) { hero.src = cardImage?.getAttribute('src') || 'images/news-placeholder.webp'; hero.alt = heading.textContent; }
+      if (cardImage) {
+        hero.src = cardImage.getAttribute('src');
+        hero.alt = cardImage.alt;
+      } else {
+        // Keep the design's icon placeholder for stories with no photo.
+        imageWrap.replaceChildren(card.firstElementChild.cloneNode(true));
+      }
       const body = imageWrap.nextElementSibling;
       const share = [...body.children].find(child => child.textContent.includes('Share this news'));
       const paragraph = document.createElement('p'); paragraph.textContent = $('p', card).textContent;
@@ -242,6 +249,7 @@
       context.textContent = 'Article preview: this is the supplied news summary. The full article and final publishing date will be added after content approval.';
       body.replaceChildren(paragraph, context, ...(share ? [share] : []));
     } catch { notice('Unable to load the story preview. Please try again.'); }
+    finally { imageWrap.hidden = false; }
   }
   setupArticle();
   $$('.shr').forEach(link => {
