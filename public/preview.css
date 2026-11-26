@@ -53,7 +53,8 @@ input:focus, select:focus, textarea:focus { border-color: #00528e !important; ou
   .cw, .fw { row-gap: 24px; }
   .cg, .cg2, .g3, .g3i, .g4, .g4i, .g4s, .cdt { gap: 16px; }
   .mission-grid { gap: 16px !important; }
-  .home-hero .g3i, .split-layout + .g4i { margin-top: 32px !important; }
+  .home-hero .g3i { margin-top: 44px !important; }
+  .split-layout + .g4i { margin-top: 32px !important; }
   .gallery-filters { margin-bottom: 24px !important; }
 
   .content-card { padding: 20px 16px !important; }
